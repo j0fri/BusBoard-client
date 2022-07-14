@@ -8,6 +8,11 @@
 :root {
 	font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
 }
+
+h1 {
+	margin: 20px 10px 10px
+}
+
 body, button, input {
 	font: 1em Hind, sans-serif;
 	line-height: 1.5em;

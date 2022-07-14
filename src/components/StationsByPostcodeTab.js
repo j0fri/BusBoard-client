@@ -26,8 +26,24 @@ export default function StationsByPostcodeTab(){
         console.log(arrivals1)
       return (
           <div>
-              <ArrivalDisplay title = {"Arrivals at " + stationName1 + ":"} arrivalsList = {arrivals1}/>
-              <ArrivalDisplay title = {"Arrivals at " + stationName2 + ":"} arrivalsList = {arrivals2}/>
+              <h1 className={"h1"}>Arrivals at {stationName1}: </h1>
+
+              {
+                  arrivals1.map((value, index) => {
+                      return <ArrivalDisplay title={value["indicator"]}
+                                             arrivalsList={value["arrivals"]}/>
+                  })
+              }
+
+              <h1>Arrivals at {stationName2}: </h1>
+
+              {
+                  arrivals2.map((value, index) => {
+                      return <ArrivalDisplay title = {value["indicator"]} arrivalsList = {value["arrivals"]}/>
+                  })
+              }
+              {/*<ArrivalDisplay title = {"Arrivals at " + stationName1 + ":"} arrivalsList = {arrivals1}/>*/}
+              {/*<ArrivalDisplay title = {"Arrivals at " + stationName2 + ":"} arrivalsList = {arrivals2}/>*/}
           </div>
       )
     }
