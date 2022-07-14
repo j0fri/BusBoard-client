@@ -19,10 +19,12 @@ export default function HomePage(){
 
     //TODO: dynamic search bar
     return (
+        <div>
+        <div className="App.logo">
+             <img src={logo} className="App-logo" alt="logo"/>
+        </div>
       <div className="App">
           <div className="tabs">
-
-
               <Tabs>
 
                   <Tab label = "Search by Postcode">
@@ -49,6 +51,7 @@ export default function HomePage(){
           {/*<ArrivalDisplayTab/>*/}
           </div>
       </div>
+        </div>
   );
 }
 
