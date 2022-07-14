@@ -5,7 +5,7 @@ export default function ArrivalDisplay(props){
     return (
         <div>
             <div>
-                <h1>{props.title}</h1>
+                <h1 className="ArrivalDisplayTitle">{props.title}</h1>
             </div>
             <div className="table-wrapper">
                 <table className="fl-table">

@@ -1,161 +1,158 @@
-*{
-  box-sizing: border-box;
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
 }
-body{
-  margin: 0px;
-  padding: 0px;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #130f40;
-  font-family: 'Lato' !important;
+:root {
+	font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
 }
-.search-box{
-  width: fit-content;
-  height: fit-content;
-  position: relative;
+body, button, input {
+	font: 1em Hind, sans-serif;
+	line-height: 1.5em;
 }
-.input-search{
-  height: 50px;
-  width: 50px;
-  border-style: none;
-  padding: 10px;
-  font-size: 18px;
-  letter-spacing: 2px;
-  outline: none;
-  border-radius: 25px;
-  transition: all .5s ease-in-out;
-  background-color: #22a6b3;
-  padding-right: 40px;
-  color:#fff;
+body, input {
+	color: #171717;
 }
-.input-search::placeholder{
-  color:rgba(255,255,255,.5);
-  font-size: 18px;
-  letter-spacing: 2px;
-  font-weight: 100;
+body, .search-bar {
+	display: flex;
 }
-.btn-search{
-  width: 50px;
-  height: 50px;
-  border-style: none;
-  font-size: 20px;
-  font-weight: bold;
-  outline: none;
-  cursor: pointer;
-  border-radius: 50%;
-  position: absolute;
-  right: 0px;
-  color:#ffffff ;
-  background-color:transparent;
-  pointer-events: painted;
+/*body {*/
+/*	background: #f1f1f1;*/
+/*	height: 100vh;*/
+/*}*/
+.search-bar input,
+.search-btn,
+.search-btn:before,
+.search-btn:after {
+	transition: all 0.25s ease-out;
 }
-.btn-search:focus ~ .input-search{
-  width: 300px;
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom:1px solid rgba(255,255,255,.5);
-  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+.search-bar input,
+.search-btn {
+	width: 3em;
+	height: 3em;
 }
-.input-search:focus{
-  width: 300px;
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom:1px solid rgba(255,255,255,.5);
-  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+.search-bar input:invalid:not(:focus),
+.search-btn {
+	cursor: pointer;
 }
-
-
-
-/*  footer   */
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
+.search-bar,
+.search-bar input:focus,
+.search-bar input:valid  {
+	width: 100%;
 }
-
-footer p {
-    margin: 10px 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida  Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.search-bar input:focus,
+.search-bar input:not(:focus) + .search-btn:focus {
+	outline: transparent;
 }
-footer .fa-heart{
-    color: red;
+.search-bar {
+	margin: auto;
+	padding: 1.5em;
+	justify-content: center;
+	max-width: 30em;
 }
-footer .fa-dev{
-    color: #fff;
+.search-bar input {
+	background: transparent;
+	border-radius: 1.5em;
+	box-shadow: 0 0 0 0.4em #171717 inset;
+	padding: 0.75em;
+	transform: translate(0.5em,0.5em) scale(0.5);
+	transform-origin: 100% 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
-footer .fa-twitter-square{
-  color:#1da0f1;
+.search-bar input::-webkit-search-decoration {
+	-webkit-appearance: none;
 }
-footer .fa-instagram{
-  color: #f0007c;
+.search-bar input:focus,
+.search-bar input:valid {
+	background: #fff;
+	border-radius: 0.375em 0 0 0.375em;
+	box-shadow: 0 0 0 0.1em #d9d9d9 inset;
+	transform: scale(1);
 }
-fotter .fa-linkedin{
-  color:#0073b1;
+.search-btn {
+	background: #171717;
+	border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
+	padding: 0.75em;
+	position: relative;
+	transform: translate(0.25em,0.25em) rotate(45deg) scale(0.25,0.125);
+	transform-origin: 0 50%;
 }
-footer .fa-codepen{
-  color:#fff
+.search-btn:before,
+.search-btn:after {
+	content: "";
+	display: block;
+	opacity: 0;
+	position: absolute;
 }
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-  margin-right:5px;
+.search-btn:before {
+	border-radius: 50%;
+	box-shadow: 0 0 0 0.2em #f1f1f1 inset;
+	top: 0.75em;
+	left: 0.75em;
+	width: 1.2em;
+	height: 1.2em;
 }
-.youtubeBtn{
-    position: fixed;
-    left: 50%;
-  transform:translatex(-50%);
-    bottom: 45px;
-    cursor: pointer;
-    transition: all .3s;
-    vertical-align: middle;
-    text-align: center;
-    display: inline-block;
+.search-btn:after {
+	background: #f1f1f1;
+	border-radius: 0 0.25em 0.25em 0;
+	top: 51%;
+	left: 51%;
+	width: 0.75em;
+	height: 0.25em;
+	transform: translate(0.2em,0) rotate(45deg);
+	transform-origin: 0 50%;
 }
-.youtubeBtn i{
-   font-size:20px;
-  float:left;
-}
-.youtubeBtn a{
-    color:#ff0000;
-    animation: youtubeAnim 1000ms linear infinite;
-  float:right;
-}
-.youtubeBtn a:hover{
-  color:#c9110f;
-  transition:all .3s ease-in-out;
-  text-shadow: none;
-}
-.youtubeBtn i:active{
-  transform:scale(.9);
-  transition:all .3s ease-in-out;
-}
-.youtubeBtn span{
-    font-family: 'Lato';
-    font-weight: normal;
-    color: #fff;
-    display: block;
-    font-size: 12px;
-    float: right;
-    line-height: 20px;
-    padding-left: 5px;
-
+.search-btn span {
+	display: inline-block;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
 }
 
-@keyframes youtubeAnim{
-  0%,100%{
-    color:#c9110f;
-  }
-  50%{
-    color:#ff0000;
-  }
+/* Active state */
+.search-bar input:focus + .search-btn,
+.search-bar input:valid + .search-btn {
+	background: #324960;
+	border-radius: 0 0.375em 0.375em 0;
+	transform: scale(1);
 }
-/* footer  */
+.search-bar input:focus + .search-btn:before,
+.search-bar input:focus + .search-btn:after,
+.search-bar input:valid + .search-btn:before,
+.search-bar input:valid + .search-btn:after {
+	opacity: 1;
+}
+.search-bar input:focus + .search-btn:hover,
+.search-bar input:valid + .search-btn:hover,
+.search-bar input:valid:not(:focus) + .search-btn:focus {
+	background: #324960;
+}
+.search-bar input:focus + .search-btn:active,
+.search-bar input:valid + .search-btn:active {
+	transform: translateY(1px);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	body, input {
+		color: #f1f1f1;
+	}
+	body {
+		background: #171717;
+	}
+	.search-bar input {
+		box-shadow: 0 0 0 0.4em #f1f1f1 inset;
+	}
+	.search-bar input:focus,
+	.search-bar input:valid {
+		background: #3d3d3d;
+		box-shadow: 0 0 0 0.1em #3d3d3d inset;
+	}
+	.search-btn {
+		background: #f1f1f1;
+	}
+}
+

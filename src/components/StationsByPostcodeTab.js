@@ -5,6 +5,7 @@ import {apiContext} from "../App";
 import ArrivalDisplay from "./ArrivalDisplay";
 import SearchBar from "./SearchBar";
 import {postcodeContext} from "./HomePage";
+import PostcodesTabFirstSearch from "./PostcodesTabFirstSearch";
 
 
 
@@ -19,7 +20,6 @@ export default function StationsByPostcodeTab(){
   const [stationName2, setStationName2] = useState([]);
   const [output, setOutput] = useState("");
   const [hasStations, setHasStations] = useState(false);
-  const [tables, setTables] = useState(<div>{output}</div>)
 
     let formatArrivals = () => {
         console.log("Reloading")
@@ -69,7 +69,8 @@ export default function StationsByPostcodeTab(){
     //TODO: dynamic search bar
     return (
       <div>
-          <SearchBar getState = {getPostcode} context = {postcodeContext} callWhenSubmit = {refreshArrivals} />
+          <PostcodesTabFirstSearch getState = {getPostcode} context = {postcodeContext} callWhenSubmit = {refreshArrivals}/>
+          {/*<SearchBar getState = {getPostcode} context = {postcodeContext} callWhenSubmit = {refreshArrivals} />*/}
           {tableIfBuses()}
 
       </div>
