@@ -4,7 +4,8 @@ import '../App.css';
 import {apiContext} from "../App";
 import ArrivalDisplay from "./ArrivalDisplay";
 import SearchBar from "./SearchBar";
-import {busStopCodeContext} from "./HomePage";
+import {busStopCodeContext, postcodeContext} from "./HomePage";
+import PostcodesTabFirstSearch from "./PostcodesTabFirstSearch";
 
 
 
@@ -19,7 +20,7 @@ export default function ArrivalDisplayTab(){
 
     let formatArrivals = () => {
       return (
-          <ArrivalDisplay title={"Arrivals"} arrivalsList = {arrivals}/>
+          <ArrivalDisplay title={"Arrivals:"} arrivalsList = {arrivals}/>
       )
     }
 
@@ -62,7 +63,8 @@ export default function ArrivalDisplayTab(){
     //TODO: dynamic search bar
     return (
       <div className="ArrivalDisplay Tab">
-          <SearchBar getState = {getBusStopCode} context = {busStopCodeContext} callWhenSubmit = {refreshArrivals} />
+          {/*<SearchBar getState = {getBusStopCode} context = {busStopCodeContext} callWhenSubmit = {refreshArrivals} />*/}
+          <PostcodesTabFirstSearch getState = {getBusStopCode} context = {busStopCodeContext} callWhenSubmit = {refreshArrivals}/>
           {tableIfBuses()}
 
       </div>
