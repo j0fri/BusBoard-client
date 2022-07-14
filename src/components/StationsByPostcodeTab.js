@@ -6,6 +6,7 @@ import ArrivalDisplay from "./ArrivalDisplay";
 import SearchBar from "./SearchBar";
 import {postcodeContext} from "./HomePage";
 import PostcodesTabFirstSearch from "./PostcodesTabFirstSearch";
+import ArrivalDisplayMultiple from "./ArrivalDisplayMultiple";
 
 
 
@@ -27,6 +28,8 @@ export default function StationsByPostcodeTab(){
       return (
           <div>
               <h1 className={"h1"}>Arrivals at {stationName1}: </h1>
+
+              <ArrivalDisplayMultiple allArrivals = {arrivals1} title = {"Arrivals at " + stationName1} />
 
               {
                   arrivals1.map((value, index) => {
