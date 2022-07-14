@@ -53,7 +53,11 @@ export default function ArrivalDisplayTab(){
 
     let tableIfBuses = () => {
         if (!hasBuses){
-            return (<div>{output}</div>)
+            if(output === "EntityNotFoundException") {
+                return (<div>{"Invalid Stop ID"}</div>)
+            }else{
+                return (<div>{output}</div>)
+            }
         }
         else{
             return (<div>{formatArrivals()}</div>)

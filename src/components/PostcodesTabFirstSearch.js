@@ -19,7 +19,10 @@ export default function PostcodesTabFirstSearch(props){
     }, [])
 
     return (
-        <form className="search-bar">
+
+        <form className="search-bar" action = {() => {context.data = searchBarContents;
+                props.callWhenSubmit();}} onSubmit={(event) => {event.preventDefault(); context.data = searchBarContents;
+                props.callWhenSubmit();}}>
             <input type="search" name="search" pattern=".*\S.*" value={searchBarContents} onChange={(event) => handleStateChange(event)} required />
                 <button className="search-btn" type="button" onClick = {() => {context.data = searchBarContents;
                 props.callWhenSubmit();}}>
