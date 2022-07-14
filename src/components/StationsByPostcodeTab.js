@@ -75,7 +75,11 @@ export default function StationsByPostcodeTab(){
 
     let tableIfBuses = () => {
         if (!hasStations){
-            return (<div>{output}</div>)
+            if(output === "" && postcode.data !== ""){
+                return (<div>{"Invalid Postcode"}</div>)
+            }else{
+                return (<div>{output}</div>)
+            }
         }
         else{
             return (<div>{formatArrivals()}</div>)
